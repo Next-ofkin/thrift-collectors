@@ -3,6 +3,7 @@ import CreateAccountForm from "./ui/CreateAccountForm";
 import DepositForm from "./ui/DepositForm";
 import { redirect } from "next/navigation";
 import { approveWithdrawal, declineWithdrawal } from "./withdrawal-actions";
+import Link from "next/link"; // Added import
 
 /** DB types (narrowed to what we select) */
 type Role = "agent" | "customer";
@@ -125,9 +126,10 @@ export default async function AgentDashboard({
       {/* Header with Customers link */}
       <div className="flex items-center justify-between">
         <h1 className="text-xl font-semibold">Agent Overview</h1>
-        <a className="btn btn-sm btn-outline" href="/agent/customers">
+        {/* Fixed: Replaced <a> with <Link> */}
+        <Link className="btn btn-sm btn-outline" href="/agent/customers">
           Customers
-        </a>
+        </Link>
       </div>
 
       {/* Create account */}
