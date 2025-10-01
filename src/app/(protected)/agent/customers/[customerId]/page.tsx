@@ -1,6 +1,7 @@
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import DepositForm from "../../ui/DepositForm";
+import Link from "next/link"; // Added import
 
 type Role = "agent" | "customer";
 type TxStatus = "pending" | "completed" | "failed";
@@ -104,9 +105,10 @@ export default async function AgentCustomerDetail({
             <div className="text-sm opacity-70">{customer.phone}</div>
           )}
         </div>
-        <a href="/agent/customers" className="btn btn-sm">
+        {/* Fixed: Replaced <a> with <Link> */}
+        <Link href="/agent/customers" className="btn btn-sm">
           Back
-        </a>
+        </Link>
       </div>
 
       <section className="space-y-3">
